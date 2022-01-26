@@ -1,11 +1,11 @@
 require 'peep'
 
-  describe Peep do
-    describe '.all' do
-      peeps = Peep.all
+describe Peep do
+  it '.all' do
+    peeps = Peep.all
 
-      expect(bookmarks).to include("What a sunny day!")
-      expect(bookmarks).to include("How are you guys??")
-      expect(bookmarks).to include("I love chocolate..")
-    end
+    expect(peeps).to include("What a sunny day!")
+    expect(peeps).to include("How are you guys??")
+    expect(peeps).to include("I love chocolate..")
+  end
 end

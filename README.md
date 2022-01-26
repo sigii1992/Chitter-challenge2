@@ -38,6 +38,6 @@ I want to receive an email if I am tagged in a Peep
 ### To set up database:
 
 * Connect to `psql`.
-* Create the database using the `psql` command `CREATE DATABASE chitter_challenge;`.
-* Connect to the database using the `psql` command `\c chitter_challenge`.
+* Create the database using the `psql` command `CREATE DATABASE chitter;`.
+* Connect to the database using the `psql` command `\c chitter`.
 * Run the query I have saved in the file `01_create_peeps_table.sql` in the `db/migrations` folder.
