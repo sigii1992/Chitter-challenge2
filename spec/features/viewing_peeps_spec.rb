@@ -8,4 +8,14 @@ feature 'Viewing peeps' do
     expect(page).to have_content "How are you guys??"
     expect(page).to have_content "I love chocolate.."
   end
+
+  scenario 'user can click button to go back to the index page' do
+    visit('/peeps')
+    expect(page).to have_button('Go back!')
+  end
+
+  scenario 'user can click button to create a new peep' do
+    visit('/peeps')
+    expect(page).to have_button('Create peep')
+  end
 end
