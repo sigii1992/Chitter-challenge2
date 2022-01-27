@@ -1,11 +1,15 @@
+<h2>Peeps list:</h2>
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep %></li>
+    <li><%= peep[0]%><br><%= peep[1]%></li><br>
   <% end %>
 </ul>
-<a href="/">
-<button class="btn">Go back!</button>
-</a><br><br>
-<a href="/peeps/new">
-<button class="btn">Create peep</button>
-</a>
+<div>
+  <a href="/">
+  <button class="btn">Go back!</button>
+  </a>
+  <br><br>
+  <a href="/peeps/new">
+  <button class="btn">Create peep</button>
+  </a>
+</div>
