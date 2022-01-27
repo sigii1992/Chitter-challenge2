@@ -8,12 +8,22 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/' do
-    'Welcome to Chitter!'
+    erb :'/index'
   end
 
   get '/peeps' do
     @peeps = Peep.all
-    erb :'peeps/index'
+    erb :'peeps/view'
+  end
+
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    p params
+    Peep.create(message: params[:message])
+    redirect '/peeps'
   end
 
   run! if app_file == $0

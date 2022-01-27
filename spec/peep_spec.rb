@@ -13,4 +13,9 @@ describe Peep do
     expect(peeps).to include("How are you guys??")
     expect(peeps).to include("I love chocolate..")
   end
+
+  it '.create' do
+    Peep.create(message: 'I am still learning!')
+    expect(Peep.all).to include 'I am still learning!'
+  end
 end
