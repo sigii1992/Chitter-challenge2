@@ -1,8 +1,10 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require './lib/peep'
+require './lib/user'
 
 class ChitterChallenge < Sinatra::Base
+  enable :sessions, :method_override
   configure :development do
     register Sinatra::Reloader
   end
@@ -12,6 +14,7 @@ class ChitterChallenge < Sinatra::Base
   end
 
   get '/peeps' do
+    @user = User.find(session[:user_id])
     @peeps = Peep.all
     erb :'peeps/view'
   end
@@ -21,8 +24,17 @@ class ChitterChallenge < Sinatra::Base
   end
 
   post '/peeps' do
-    p params
     Peep.create(message: params[:message])
+    redirect '/peeps'
+  end
+
+  get '/users/new' do
+    erb :'users/new'
+  end
+
+  post '/users' do
+    user = User.create(email: params[:email], password: params[:password])
+    session[:user_id] = user.id
     redirect '/peeps'
   end
 
