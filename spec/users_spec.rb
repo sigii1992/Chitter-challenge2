@@ -3,6 +3,12 @@ require 'user'
 
 describe User do
   describe '.create' do
+    it 'hashes the password using BCrypt' do
+      expect(BCrypt::Password).to receive(:create).with('password123')
+  
+      User.create(email: 'test@example.com', password: 'password123')
+    end
+
     it 'creates a new user' do
       user = User.create(email: 'test@example.com', password: 'password123')
       persisted_data = persisted_data(table: 'users', id: user.id)
