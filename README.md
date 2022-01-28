@@ -40,4 +40,4 @@ I want to receive an email if I am tagged in a Peep
 * Connect to `psql`.
 * Create the database using the `psql` command `CREATE DATABASE chitter;` and `CREATE DATABASE chitter_test;`.
 * Connect to the database using the `psql` command `\c chitter` and `\c chitter_test`.
-* Run the query for both databases I have saved in the file `01_create_peeps_table.sql` in the `db/migrations` folder.
+* Run the query for both databases I have saved in the files `01_create_peeps_table.sql`, `02_create_users_table.sql` in the `db/migrations` folder.

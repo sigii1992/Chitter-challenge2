@@ -1,7 +1,7 @@
 <h2>Peeps list:</h2>
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep[0]%><br><%= peep[1]%></li><br>
+    <li><%= peep.time%><br><%= peep.message%></li><br>
   <% end %>
 </ul>
 <div>
