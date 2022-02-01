@@ -1,5 +1,42 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+   <% if @user %>
+  <a class="navbar-brand" href="/peeps">Chitter</a>
+  <% else !@user %>
+  <a class="navbar-brand" href="/">Chitter</a>
+  <% end %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <% if @user %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/sessions/destroy">Log out</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/peeps/new">Create peep</a>
+      </li>
+    </ul>
+  </div>
+  <% else !@user %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/users/new">Sign up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/sessions/new">Log in</a>
+      </li>
+    </ul>
+  </div>
+  <% end %>
+</nav>
+
+
 <% if @user %>
-  <h1>Welcome, <%= @user.email %></h1>
+  <h1>Welcome to Chitter, <%= @user.email %></h1>
 <% end %>
 
 <h2>Peeps list:</h2>
@@ -8,12 +45,5 @@
     <li><%= peep.time%><br><%= peep.message%></li><br>
   <% end %>
 </ul>
-<div>
-  <a href="/">
-  <button class="btn">Go back!</button>
-  </a>
-  <br><br>
-  <a href="/peeps/new">
-  <button class="btn">Create peep</button>
-  </a>
-</div>
+
+

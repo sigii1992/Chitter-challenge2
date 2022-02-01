@@ -8,6 +8,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
+        <a class="nav-link" href="/peeps">View peeps</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="/users/new">Sign up</a>
       </li>
       <li class="nav-item">
@@ -17,7 +20,6 @@
   </div>
 </nav>
 
+<p><%= flash[:notice] %></p>
+
 <h1>Welcome to Chitter!</h1> 
-<a href="/peeps">
-<button class="btn btn-dark">View peeps</button>
-</a>
