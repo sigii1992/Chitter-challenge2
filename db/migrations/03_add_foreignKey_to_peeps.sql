@@ -1,0 +1,1 @@
+ALTER TABLE peeps ADD COLUMN user_id int REFERENCES users (id);
