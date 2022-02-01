@@ -1,10 +1,12 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'sinatra/flash'
 require './lib/peep'
 require './lib/user'
 
 class ChitterChallenge < Sinatra::Base
   enable :sessions, :method_override
+  register Sinatra::Flash
   configure :development do
     register Sinatra::Reloader
   end
@@ -44,8 +46,14 @@ class ChitterChallenge < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect('/peeps')
+
+    if user
+      session[:user_id] = user.id
+      redirect('/peeps')
+    else
+      flash[:notice] = 'Incorrect email or password.'
+      redirect('/sessions/new')
+    end
   end
 
   run! if app_file == $0
