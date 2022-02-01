@@ -6,9 +6,4 @@ feature 'Add a new peep' do
 
     expect(page).to have_content 'I am still learning!'
   end
-
-  scenario 'A user can go back to peeps list if he do not want to create a new one' do
-    visit('peeps/new')
-    expect(page).to have_button('Go back to peeps!')
-  end
 end

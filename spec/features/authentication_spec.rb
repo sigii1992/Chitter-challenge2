@@ -7,7 +7,7 @@ feature 'authentication' do
     fill_in('password', with: 'password123')
     click_button('Log in')
 
-    expect(page).to have_content 'Welcome, test@example.com'
+    expect(page).to have_content 'Welcome to Chitter, test@example.com'
   end
 
   scenario 'a user sees an error if they get their email wrong' do
@@ -18,7 +18,7 @@ feature 'authentication' do
     fill_in('password', with: 'password123')
     click_button('Log in')
 
-    expect(page).not_to have_content 'Welcome, test@example.com'
+    expect(page).not_to have_content 'Welcome to Chitter, test@example.com'
     expect(page).to have_content 'Incorrect email or password.'
   end
 
@@ -30,7 +30,7 @@ feature 'authentication' do
     fill_in(:password, with: 'wrongpassword')
     click_button('Log in')
 
-    expect(page).not_to have_content 'Welcome, test@example.com'
+    expect(page).not_to have_content 'Welcome to Chitter, test@example.com'
     expect(page).to have_content 'Incorrect email or password.'
   end
 
@@ -41,10 +41,10 @@ feature 'authentication' do
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'password123')
     click_button('Log in')
+   
+    click_on('Log out')
 
-    click_button('Log out')
-
-    expect(page).not_to have_content 'Welcome, test@example.com'
+    expect(page).not_to have_content 'Welcome to Chitter, test@example.com'
     expect(page).to have_content 'You have logged out.'
   end
 end
