@@ -1,25 +1,59 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">Chitter</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Chitter</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/peeps">View peeps</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/sessions/new">Log in</a>
-      </li>
-    </ul>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/peeps">View peeps</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/sessions/new">Log in</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="p-3 mb-2 bg-secondary text-white">
+    <p><%= flash[:notice] %></p>
+    <section class="vh-100 gradient-custom">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card bg-dark text-white" style="border-radius: 1rem;">
+              <div class="card-body p-5 text-center">
+
+                <div class="mb-md-5 mt-md-4 pb-5">
+
+                  <h2 class="fw-bold mb-2 text-uppercase">Sign up</h2>
+                  <p class="text-white-50 mb-5">Please enter your email adress and password to create a new account!</p>
+                  
+                  <form action="/users" method="post">
+                  <div class="form-outline form-white mb-4">
+                    <input type="email" name="email" placeholder="Email" id="typeEmailX" class="form-control form-control-lg" />
+                  </div>
+                  <div class="form-outline form-white mb-4">
+                    <input type="password" name="password" placeholder="Password" id="typePasswordX" class="form-control form-control-lg" />
+                  </div>
+                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Sign up</button>
+                  </form>
+
+                </div>
+
+                <div>
+                  <p class="mb-0">Already have an account? <a href="/sessions/new" class="text-white-50 fw-bold">Log in</a></p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
-</nav>
+</body>
 
-<br>
-<form action="/users" method="post">
-  <input type="email" name="email" placeholder="Enter your email" />
-  <input type="password" name="password" placeholder="Enter your password" />
-  <button class="btn btn-dark">Sign up</button>
-</form>
