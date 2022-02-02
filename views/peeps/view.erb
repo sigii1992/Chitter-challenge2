@@ -11,23 +11,23 @@
 
   <% if @user %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/sessions/destroy">Log out</a>
-      </li>
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="nav-link" href="/peeps/new">Create peep</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/sessions/destroy">Log out</a>
       </li>
     </ul>
   </div>
   <% else !@user %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/users/new">Sign up</a>
-      </li>
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="nav-link" href="/sessions/new">Log in</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/users/new">Sign up</a>
       </li>
     </ul>
   </div>
