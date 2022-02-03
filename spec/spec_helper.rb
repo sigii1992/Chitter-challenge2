@@ -1,9 +1,10 @@
+require 'simplecov'
+SimpleCov.start
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require_relative './setup_test_db'
-# Set the environment to "test"
-# ENV['RACK_ENV'] = 'test'
+
 ENV['ENVIRONMENT'] = 'test'
 
 RSpec.configure do |config|
@@ -11,6 +12,8 @@ RSpec.configure do |config|
     setup_test_db
   end
 end
+
+
 # Bring in the contents of the `app.rb` file. The below is equivalent to: require_relative '../app.rb'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
